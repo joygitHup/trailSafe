@@ -63,3 +63,34 @@
 
 - 模板默认预装核心组件库 `shadcn/ui`，位于`src/components/ui/`目录下
 - Next.js 项目**必须默认**采用 shadcn/ui 组件、风格和规范，**除非用户指定用其他的组件和规范。**
+
+## 项目概述
+
+**径安 TrailSafe** - 户外徒步路径与下撤点资料包系统前端
+
+### 页面结构
+
+| 路由 | 功能 | 组件 |
+|------|------|------|
+| `/` | 资料包浏览首页 | `src/app/page.tsx` → `TrailPackList` |
+| `/trails/[id]` | 路线详情（含下撤点列表、海拔剖面） | `src/app/trails/[id]/page.tsx` → `TrailDetailContent` |
+| `/trails/[id]/evac/[evacId]` | 下撤点详情 | `src/app/trails/[id]/evac/[evacId]/page.tsx` → `EvacPointDetailContent` |
+| `/admin` | 运营管理仪表盘 | `src/app/admin/page.tsx` → `AdminDashboard` |
+| `/admin/routes` | 路线管理列表 | `src/app/admin/routes/page.tsx` → `AdminRoutesList` |
+| `/admin/routes/[id]` | 路线管理详情 | `src/app/admin/routes/[id]/page.tsx` → `AdminRouteDetail` |
+| `/admin/verify` | 核验记录管理 | `src/app/admin/verify/page.tsx` → `VerifyManagement` |
+| `/user/favorites` | 用户收藏与下载 | `src/app/user/favorites/page.tsx` → `UserFavorites` |
+| `/user/checklist` | 行前检查单 | `src/app/user/checklist/page.tsx` → `PreHikeChecklist` |
+
+### 数据层
+
+- 类型定义：`src/lib/types.ts`
+- Mock 数据：`src/lib/mock-data.ts`（含4条路线、12个下撤点、5条核验记录）
+- 共享组件：`src/components/shared/`
+
+### 设计规范
+
+- 详见 `DESIGN.md`
+- 主色：深岩灰 + 苔藓绿，强调色：信号橙
+- 状态色：安全绿/警告黄/危险红（用于时间窗口和核验状态）
+- 数据字体：JetBrains Mono（标距柱编号、距离、时间）

@@ -1,34 +1,40 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
+import { Header } from '@/components/shared/header';
+import { TrailPackList } from '@/components/shared/trail-pack-list';
 
-export const metadata: Metadata = {
-  title: '扣子编程 - AI 开发伙伴',
-  description: '扣子编程，你的 AI 开发伙伴已就位',
-};
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex h-full items-center justify-center bg-background text-foreground transition-colors duration-300 dark:bg-background dark:text-foreground overflow-hidden min-h-screen">
-      {/* 主容器 */}
-      <main className="flex w-full h-full max-w-3xl flex-col items-center justify-center px-16 py-32 sm:items-center">
-        <div className="flex flex-col items-center justify-between gap-4">
-           <Image
-            src="https://lf-coze-web-cdn.coze.cn/obj/eden-cn/lm-lgvj/ljhwZthlaukjlkulzlp/coze-coding/icon/coze-coding.gif"
-            alt="扣子编程 Logo"
-            width={156}
-            height={130}
-          />
-          <div>
-            <div className="flex flex-col items-center gap-2 text-center sm:items-center sm:text-center">
-              <h1 className="max-w-xl text-base font-semibold leading-tight tracking-tight text-foreground dark:text-foreground">
-                应用开发中
-              </h1>
-              <p className="max-w-2xl text-sm leading-8 text-muted-foreground dark:text-muted-foreground">
-                请稍后，页面即将呈现
-              </p>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main className="mx-auto max-w-7xl px-4 py-6">
+        {/* Hero section */}
+        <div className="contour-bg mb-8 rounded-lg border border-border bg-card p-6 md:p-8">
+          <div className="max-w-2xl">
+            <h1 className="text-2xl font-bold tracking-tight md:text-3xl">
+              每一条路线，都有安全底线
+            </h1>
+            <p className="mt-2 text-sm text-muted-foreground md:text-base">
+              经过实地核验的下撤点信息、时间窗口与接驳方案。
+              让你在山上需要做决定的那一刻，能拿到确定的信息。
+            </p>
+            <div className="mt-4 flex flex-wrap gap-4 text-xs text-muted-foreground">
+              <div className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-safe-green" />
+                已核验下撤点
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-warn-yellow" />
+                接近时间窗口
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-danger-red" />
+                建议下撤
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Trail pack list */}
+        <TrailPackList />
       </main>
     </div>
   );
